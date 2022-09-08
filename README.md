@@ -1,4 +1,14 @@
-# Project Bebop
+A big thank you to Brock Allen, he has helped me diagnose this.
+
+Basically the response that I'm intercepting and replacing has the header to set the auth cookie.
+
+Set-Cookie: idsrv.session=XXXX; path=/; secure; samesite=none
+Set-Cookie: .AspNetCore.Identity.Application=XXXX
+ID Server using ASP.NET Core's cookie authentication handler checks the cookie to make sure it hasn't expired, and the claim for the user's unique ID is read from it. That's how IdentityServer knows who the user is so it can issue tokens for them.
+
+Brock has suggested I look into the profile service in ID server to see how I can use that to confirm the user is valid on the 2nd attempt.
+
+
 
 ## Introduction
 
